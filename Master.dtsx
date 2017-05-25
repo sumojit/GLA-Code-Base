@@ -1,0 +1,402 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/25/2017 3:10:06 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="SNATH02163"
+  DTS:CreatorName="NAM\snath021"
+  DTS:DTSID="{C3BA37C8-1268-4C16-A6DD-A7697AC61BAF}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="12.0.5000.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Master"
+  DTS:PackageType="5"
+  DTS:VersionBuild="11"
+  DTS:VersionGUID="{F2B16C56-1C1F-4073-96DE-DE07B91FF81D}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Config_DB]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{BEE5112F-6B53-4E7C-89EA-073E8300B424}"
+      DTS:ObjectName="Config_DB">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">"Data Source="+ @[$Project::Conf_SRV_Name]+" ;Initial Catalog="+ @[$Project::Conf_DB_Name] +";Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;"</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=SNATH02163\MSSQL2012 ;Initial Catalog=GLA;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{C3FF8B58-B153-4906-B195-5E903876D167}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="CONG_RSLT_SET">
+      <DTS:VariableValue
+        DTS:DataSubType="ManagedSerializable"
+        DTS:DataType="13">
+        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+          <SOAP-ENV:Body>
+            <xsd:anyType
+              id="ref-1"></xsd:anyType>
+          </SOAP-ENV:Body>
+        </SOAP-ENV:Envelope>
+      </DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{38915B58-C793-4D21-9B30-897E88368F2F}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="DEST_TYP_CD">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{2697BE8B-A53E-46DB-B747-ADCE3C5FD4D3}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="SRC_DB_NM">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{62160D5C-F9ED-4D36-A388-087F3ED01B45}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="SRC_SRV_NM">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{9E3D514D-0115-4E43-839F-9C8ED8E87BEF}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="SRC_TYP_CD">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{AD3AAB90-D8CF-43EE-B639-0E45A0CD9E7D}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="TRG_DB_NM">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E62612D2-2AB4-4765-A3CC-C05EC90B50A0}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="TRG_SRV_NM">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Sequence Container"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{D103FA8A-6693-42A0-A36B-958B5966F73E}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Sequence Container">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\Execute SQL Task"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{FADA480E-CBDF-4EB4-8D96-3FC811B232A6}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Execute SQL Task"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{BEE5112F-6B53-4E7C-89EA-073E8300B424}"
+              SQLTask:SqlStatementSource="SELECT &#xA;      [SRC_TYP_CD]&#xA;     ,[DEST_TYP_CD]&#xA;      ,[SRC_SRV_NM]&#xA;      ,[DEST_SRV_NM]&#xA;      ,[SRC_DB_NM]&#xA;      ,[TRG_DB_NM]&#xA;      ,[SRC_DB_PWD]&#xA;      ,[TRG_DB_PWD]&#xA;  FROM [dbo].[GLA_CONF_DET]"
+              SQLTask:ResultType="ResultSetType_Rowset" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="0"
+                SQLTask:DtsVariableName="User::CONG_RSLT_SET" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\Load Config Data"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:DTSID="{002C17A0-EF7C-426D-B8D1-8BAF4E21EB2E}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Load Config Data"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>GL_Load_Config.dtsx</PackageName>
+              <ParameterAssignment>
+                <ParameterName>Conf_DB_Name</ParameterName>
+                <BindedVariableOrParameterName>$Project::Conf_DB_Name</BindedVariableOrParameterName>
+              </ParameterAssignment>
+              <ParameterAssignment>
+                <ParameterName>Conf_SRV_Name</ParameterName>
+                <BindedVariableOrParameterName>$Project::Conf_SRV_Name</BindedVariableOrParameterName>
+              </ParameterAssignment>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\Loop Config Table"
+          DTS:CreationName="STOCK:FOREACHLOOP"
+          DTS:Description="Foreach Loop Container"
+          DTS:DTSID="{34A01D77-DB5A-4588-BBEF-ACC68A24ACC7}"
+          DTS:ExecutableType="STOCK:FOREACHLOOP"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Loop Config Table">
+          <DTS:ForEachEnumerator
+            DTS:CreationName="Microsoft.ForEachADOEnumerator"
+            DTS:DTSID="{8CC22DFA-FBA1-49E0-B841-F90D29132A7B}"
+            DTS:ObjectName="{8CC22DFA-FBA1-49E0-B841-F90D29132A7B}">
+            <DTS:ObjectData>
+              <FEEADO
+                EnumType="EnumerateRowsInFirstTable"
+                VarName="User::CONG_RSLT_SET" />
+            </DTS:ObjectData>
+          </DTS:ForEachEnumerator>
+          <DTS:Variables />
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\Sequence Container\Loop Config Table\Load Table MD"
+              DTS:CreationName="Microsoft.ExecutePackageTask"
+              DTS:Description="Execute Package Task"
+              DTS:DTSID="{BCF797D1-784D-402D-BFB7-D7885B55F36C}"
+              DTS:ExecutableType="Microsoft.ExecutePackageTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Load Table MD"
+              DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <ExecutePackageTask>
+                  <UseProjectReference>True</UseProjectReference>
+                  <PackageName>GL_Load_Table_MD.dtsx</PackageName>
+                  <ParameterAssignment>
+                    <ParameterName>SRC_TYP_CD</ParameterName>
+                    <BindedVariableOrParameterName>User::SRC_TYP_CD</BindedVariableOrParameterName>
+                  </ParameterAssignment>
+                  <ParameterAssignment>
+                    <ParameterName>DEST_TYP_CD</ParameterName>
+                    <BindedVariableOrParameterName>User::DEST_TYP_CD</BindedVariableOrParameterName>
+                  </ParameterAssignment>
+                  <ParameterAssignment>
+                    <ParameterName>SRC_DB_NM</ParameterName>
+                    <BindedVariableOrParameterName>User::SRC_DB_NM</BindedVariableOrParameterName>
+                  </ParameterAssignment>
+                  <ParameterAssignment>
+                    <ParameterName>TRG_DB_NM</ParameterName>
+                    <BindedVariableOrParameterName>User::TRG_DB_NM</BindedVariableOrParameterName>
+                  </ParameterAssignment>
+                  <ParameterAssignment>
+                    <ParameterName>SRC_SRV_NM</ParameterName>
+                    <BindedVariableOrParameterName>User::SRC_SRV_NM</BindedVariableOrParameterName>
+                  </ParameterAssignment>
+                  <ParameterAssignment>
+                    <ParameterName>TRG_SRV_NM</ParameterName>
+                    <BindedVariableOrParameterName>User::TRG_SRV_NM</BindedVariableOrParameterName>
+                  </ParameterAssignment>
+                </ExecutePackageTask>
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+          <DTS:ForEachVariableMappings>
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{5DDB80B1-19C4-4745-9377-3AECCF267BC1}"
+              DTS:ObjectName="{5DDB80B1-19C4-4745-9377-3AECCF267BC1}"
+              DTS:ValueIndex="0"
+              DTS:VariableName="User::SRC_TYP_CD" />
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{F60FF486-B8B4-475C-ABDE-57BE47411019}"
+              DTS:ObjectName="{F60FF486-B8B4-475C-ABDE-57BE47411019}"
+              DTS:ValueIndex="1"
+              DTS:VariableName="User::DEST_TYP_CD" />
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{6C0A8FB1-A95B-47B1-A97F-A49D641E63BB}"
+              DTS:ObjectName="{6C0A8FB1-A95B-47B1-A97F-A49D641E63BB}"
+              DTS:ValueIndex="2"
+              DTS:VariableName="User::SRC_SRV_NM" />
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{3FF9FEBA-CD6B-4728-9EFA-4A0AE0D477AA}"
+              DTS:ObjectName="{3FF9FEBA-CD6B-4728-9EFA-4A0AE0D477AA}"
+              DTS:ValueIndex="3"
+              DTS:VariableName="User::TRG_SRV_NM" />
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{34FC67B3-FF31-4FD7-A300-672813B7DA81}"
+              DTS:ObjectName="{34FC67B3-FF31-4FD7-A300-672813B7DA81}"
+              DTS:ValueIndex="4"
+              DTS:VariableName="User::SRC_DB_NM" />
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{BFB8D06D-E8C3-445E-BFBA-444638F0D8C6}"
+              DTS:ObjectName="{BFB8D06D-E8C3-445E-BFBA-444638F0D8C6}"
+              DTS:ValueIndex="5"
+              DTS:VariableName="User::TRG_DB_NM" />
+          </DTS:ForEachVariableMappings>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Sequence Container.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{E8A01542-0517-4F70-9719-7AE08489EDC2}"
+          DTS:From="Package\Sequence Container\Load Config Data"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Sequence Container\Execute SQL Task" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Sequence Container.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{A81CA504-F899-46F2-A34A-84850009B887}"
+          DTS:From="Package\Sequence Container\Execute SQL Task"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\Sequence Container\Loop Config Table" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql12">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="173.6,48"
+          Id="Package\Sequence Container\Load Config Data"
+          TopLeft="28,14.823530887485" />
+        <NodeLayout
+          Size="150.4,41.6"
+          Id="Package\Sequence Container\Loop Config Table\Load Table MD"
+          TopLeft="28.6857179349784,21.3647087737351" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="230.4,117.6"
+          Size="230.4,160.8"
+          Id="Package\Sequence Container\Loop Config Table"
+          TopLeft="33.3714300116715,145.270590328758" />
+        <NodeLayout
+          Size="164.8,41.6"
+          Id="Package\Sequence Container\Execute SQL Task"
+          TopLeft="45.3714302160303,79.8117658813107" />
+        <EdgeLayout
+          Id="Package\Sequence Container.PrecedenceConstraints[Constraint]"
+          TopLeft="28,38.823530887485">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="17.3714302160303,61.7882349938257"
+              Start="0,0"
+              End="9.87143021603035,61.7882349938257">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-18.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-18.5,0"
+                    Point2="-22.5,0"
+                    Point3="-22.5,4" />
+                  <mssgle:LineSegment
+                    End="-22.5,57.7882349938257" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-22.5,57.7882349938257"
+                    Point2="-22.5,61.7882349938257"
+                    Point3="-18.5,61.7882349938257" />
+                  <mssgle:LineSegment
+                    End="9.87143021603035,61.7882349938257" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container.PrecedenceConstraints[Constraint 1]"
+          TopLeft="127.77143021603,121.411765881311">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="20.7999997956412,23.8588244474471"
+              Start="0,0"
+              End="20.7999997956412,16.3588244474471">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,7.92941222372355" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,7.92941222372355"
+                    Point2="0,11.9294122237235"
+                    Point3="4,11.9294122237235" />
+                  <mssgle:LineSegment
+                    End="16.7999997956412,11.9294122237235" />
+                  <mssgle:CubicBezierSegment
+                    Point1="16.7999997956412,11.9294122237235"
+                    Point2="20.7999997956412,11.9294122237235"
+                    Point3="20.7999997956412,15.9294122237235" />
+                  <mssgle:LineSegment
+                    End="20.7999997956412,16.3588244474471" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="268.8,360.8"
+          Size="268.8,404"
+          Id="Package\Sequence Container"
+          TopLeft="152.000002588545,6.11764714462123" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
