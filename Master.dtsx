@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Master"
   DTS:PackageType="5"
-  DTS:VersionBuild="17"
-  DTS:VersionGUID="{2C2F0633-272E-4ABC-A46D-0BE404B86B5D}">
+  DTS:VersionBuild="24"
+  DTS:VersionGUID="{79932FF0-FD05-4460-89F7-6A4224C9647A}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -111,9 +111,47 @@
   </DTS:Variables>
   <DTS:Executables>
     <DTS:Executable
+      DTS:refId="Package\Prepare Data Load"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{0A3901B5-B1A3-42A1-9FB1-1C857CBBBCB8}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Prepare Data Load">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Prepare Data Load\Prep Data Load"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:DTSID="{eab64c71-1a34-4cfa-a7cd-6f93148bbe5c}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Prep Data Load"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>GL_Prep_Dest.dtsx</PackageName>
+              <ParameterAssignment>
+                <ParameterName>Conf_DB_Name</ParameterName>
+                <BindedVariableOrParameterName>$Project::Conf_DB_Name</BindedVariableOrParameterName>
+              </ParameterAssignment>
+              <ParameterAssignment>
+                <ParameterName>Conf_SRV_Name</ParameterName>
+                <BindedVariableOrParameterName>$Project::Conf_SRV_Name</BindedVariableOrParameterName>
+              </ParameterAssignment>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:Executable>
+    <DTS:Executable
       DTS:refId="Package\Sequence Container"
       DTS:CreationName="STOCK:SEQUENCE"
       DTS:Description="Sequence Container"
+      DTS:Disabled="True"
       DTS:DTSID="{D103FA8A-6693-42A0-A36B-958B5966F73E}"
       DTS:ExecutableType="STOCK:SEQUENCE"
       DTS:LocaleID="-1"
@@ -232,38 +270,38 @@
           <DTS:ForEachVariableMappings>
             <DTS:ForEachVariableMapping
               DTS:CreationName=""
-              DTS:DTSID="{63DE0D1E-D4F7-45EA-A6AD-039AF0EDAE26}"
-              DTS:ObjectName="{63DE0D1E-D4F7-45EA-A6AD-039AF0EDAE26}"
+              DTS:DTSID="{AD633652-C2B1-42B7-9A6D-4968FE24EABA}"
+              DTS:ObjectName="{AD633652-C2B1-42B7-9A6D-4968FE24EABA}"
               DTS:ValueIndex="0"
               DTS:VariableName="User::SRC_TYP_CD" />
             <DTS:ForEachVariableMapping
               DTS:CreationName=""
-              DTS:DTSID="{372DEC1E-3FDD-4090-BC89-66FD2A3B9704}"
-              DTS:ObjectName="{372DEC1E-3FDD-4090-BC89-66FD2A3B9704}"
+              DTS:DTSID="{4A5F9B9F-E232-4200-8B16-6CC5B35671A7}"
+              DTS:ObjectName="{4A5F9B9F-E232-4200-8B16-6CC5B35671A7}"
               DTS:ValueIndex="1"
               DTS:VariableName="User::DEST_TYP_CD" />
             <DTS:ForEachVariableMapping
               DTS:CreationName=""
-              DTS:DTSID="{25BF52D6-A510-4AAE-9820-761747D52DD9}"
-              DTS:ObjectName="{25BF52D6-A510-4AAE-9820-761747D52DD9}"
+              DTS:DTSID="{4F114627-E314-4F2D-B3A8-F7919E79EEFC}"
+              DTS:ObjectName="{4F114627-E314-4F2D-B3A8-F7919E79EEFC}"
               DTS:ValueIndex="2"
               DTS:VariableName="User::SRC_SRV_NM" />
             <DTS:ForEachVariableMapping
               DTS:CreationName=""
-              DTS:DTSID="{560409EF-F987-46AB-814B-FE597E5B04AE}"
-              DTS:ObjectName="{560409EF-F987-46AB-814B-FE597E5B04AE}"
+              DTS:DTSID="{801B951B-D062-4CF1-BDB1-CE02B8ED1241}"
+              DTS:ObjectName="{801B951B-D062-4CF1-BDB1-CE02B8ED1241}"
               DTS:ValueIndex="3"
               DTS:VariableName="User::TRG_SRV_NM" />
             <DTS:ForEachVariableMapping
               DTS:CreationName=""
-              DTS:DTSID="{B326B9ED-6345-484B-8385-67BD67F2AEA6}"
-              DTS:ObjectName="{B326B9ED-6345-484B-8385-67BD67F2AEA6}"
+              DTS:DTSID="{8B64D348-18A7-4A2D-8166-2EA07F7AB057}"
+              DTS:ObjectName="{8B64D348-18A7-4A2D-8166-2EA07F7AB057}"
               DTS:ValueIndex="4"
               DTS:VariableName="User::SRC_DB_NM" />
             <DTS:ForEachVariableMapping
               DTS:CreationName=""
-              DTS:DTSID="{52E8FC3C-5A16-4C2E-97E0-701AB1A47838}"
-              DTS:ObjectName="{52E8FC3C-5A16-4C2E-97E0-701AB1A47838}"
+              DTS:DTSID="{D2C04B5B-7E8C-4DE8-ACAB-87D0960E3E5C}"
+              DTS:ObjectName="{D2C04B5B-7E8C-4DE8-ACAB-87D0960E3E5C}"
               DTS:ValueIndex="5"
               DTS:VariableName="User::TRG_DB_NM" />
           </DTS:ForEachVariableMappings>
@@ -300,7 +338,7 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="164.8,41.6"
           Id="Package\Sequence Container\Execute SQL Task"
@@ -316,10 +354,10 @@
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="230.4,170.4"
-          Size="230.4,213.6"
+          PanelSize="230.4,106.4"
+          Size="230.4,149.6"
           Id="Package\Sequence Container\Loop Config Table"
-          TopLeft="33.3714300116715,145.270590328758" />
+          TopLeft="19.6571440638328,134.25882546844" />
         <EdgeLayout
           Id="Package\Sequence Container.PrecedenceConstraints[Constraint]"
           TopLeft="28,38.823530887485">
@@ -356,30 +394,24 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Sequence Container.PrecedenceConstraints[Constraint 1]"
-          TopLeft="127.77143021603,121.411765881311">
+          TopLeft="45.3714302160303,106.211765881311">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="20.7999997956412,23.8588244474473"
+              EndConnector="89.4857138478025,28.0470595871291"
               Start="0,0"
-              End="20.7999997956412,16.3588244474473">
+              End="89.4857138478025,20.5470595871291">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,7.92941222372363" />
+                    End="85.4857138478025,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,7.92941222372363"
-                    Point2="0,11.9294122237236"
-                    Point3="4,11.9294122237236" />
+                    Point1="85.4857138478025,0"
+                    Point2="89.4857138478025,0"
+                    Point3="89.4857138478025,4" />
                   <mssgle:LineSegment
-                    End="16.7999997956412,11.9294122237236" />
-                  <mssgle:CubicBezierSegment
-                    Point1="16.7999997956412,11.9294122237236"
-                    Point2="20.7999997956412,11.9294122237236"
-                    Point3="20.7999997956412,15.9294122237236" />
-                  <mssgle:LineSegment
-                    End="20.7999997956412,16.3588244474473" />
+                    End="89.4857138478025,20.5470595871291" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -391,10 +423,21 @@
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="268.8,413.6"
-          Size="268.8,456.8"
+          PanelSize="268.8,426.4"
+          Size="268.8,469.6"
           Id="Package\Sequence Container"
           TopLeft="152.000002588545,6.11764714462123" />
+        <NodeLayout
+          Size="153.6,41.6"
+          Id="Package\Prepare Data Load\Prep Data Load"
+          TopLeft="25.1428656091499,15.2941190284017" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="204.8,112"
+          Size="204.8,155.2"
+          Id="Package\Prepare Data Load"
+          TopLeft="472.000008038112,52.7058828677273" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
